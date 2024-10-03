@@ -1,0 +1,18 @@
+package com.petshop;
+
+public class Main {
+    public static void main(String[] args) {
+        Pet pet = new Pet();
+        pet.setNome("Rex");
+        pet.setProprietarioId(1);  // Proprietário com ID 1
+        pet.setIdade(3);
+        pet.setSexo("M");
+        pet.setEspecie("Cachorro");
+        pet.setRaca("Labrador");
+        
+        PetService petService = new PetService();
+        petService.adicionarPet(pet);
+        
+        System.out.println("Pet adicionado com sucesso!");
+    }
+}
