@@ -1,0 +1,24 @@
+package com.petshop;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class PetService {
+    public void adicionarPet(Pet pet) {
+        String sql = "INSERT INTO Pet (nome, proprietario_id, idade, sexo, especie, raca) VALUES (?, ?, ?, ?, ?, ?)";
+        
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, pet.getNome());
+            stmt.setInt(2, pet.getProprietarioId());
+            stmt.setInt(3, pet.getIdade());
+            stmt.setString(4, pet.getSexo());
+            stmt.setString(5, pet.getEspecie());
+            stmt.setString(6, pet.getRaca());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
