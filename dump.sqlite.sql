@@ -40,10 +40,37 @@ CREATE TABLE Vacina (
     data_aplicacao TEXT NOT NULL,
     FOREIGN KEY (pet_id) REFERENCES Pet(id)
 );
- 
--- INDEX
- 
--- TRIGGER
- 
--- VIEW
- 
+
+INSERT INTO Proprietario (nome, cpf, email, celular) 
+VALUES ('João Silva', '12345678900', 'joao@gmail.com', '11999999999');
+
+
+INSERT INTO Pet (nome, proprietario_id, idade, sexo, especie, raca) 
+VALUES ('Rex', 1, 3, 'M', 'Cachorro', 'Labrador');
+
+
+INSERT INTO Usuario (nome, email, senha, grupo) 
+VALUES ('Dr. Ana', 'ana.vet@gmail.com', 'senha123', 'Veterinário');
+
+
+INSERT INTO Vacina (pet_id, nome, descricao, data_aplicacao) 
+VALUES (1, 'Vacina Anti-rábica', 'Vacina para prevenir raiva', '2023-01-10');
+
+
+INSERT INTO Historico (pet_id, peso, altura, data_hora) 
+VALUES (1, 25.5, 0.6, '2023-01-15 10:30:00');
+
+
+SELECT * FROM Proprietario;
+
+
+SELECT * FROM Pet;
+
+
+SELECT * FROM Usuario;
+
+
+SELECT * FROM Historico;
+
+
+SELECT * FROM Vacina;
